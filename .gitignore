@@ -1,0 +1,11 @@
+images/*
+!images/example.png
+data/raw/*
+!data/raw/example.json
+data/maps/*
+!data/maps/index.json
+!data/maps/example.config.json
+.q*/
+AGENTS.md
+node_modules/
+dist/

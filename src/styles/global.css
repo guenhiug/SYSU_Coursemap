@@ -1,0 +1,172 @@
+:root {
+  /* ===== 基础类别（默认主题 = 玫红系，v1 绿青系结构换色系） ===== */
+  --c-common-elective-bg: hsl(345 42% 46%);
+  --c-common-elective-fg: #ffffff;
+  --c-common-required-bg: hsl(345 38% 92%);
+  --c-common-required-fg: hsl(337 45% 30%);
+  --c-common-required-bd: hsl(337 30% 78%);
+  --c-platform-bg: hsl(20 48% 46%);
+  --c-platform-fg: #ffffff;
+  --c-core-bg: hsl(20 52% 28%);
+  --c-core-fg: #ffffff;
+  --c-practice-bg: hsl(150 60% 30%);
+  --c-practice-fg: #ffffff;
+
+  /* ===== 选修子模块色槽 0-7（淡底两档 + 少量实底） ===== */
+  --c-mod-slot-0-bg: hsl(3 45% 92%);
+  --c-mod-slot-0-fg: hsl(3 45% 32%);
+  --c-mod-slot-0-bd: hsl(3 35% 76%);
+  --c-mod-slot-1-bg: hsl(51 45% 87%);
+  --c-mod-slot-1-fg: hsl(51 45% 30%);
+  --c-mod-slot-1-bd: hsl(51 35% 70%);
+  --c-mod-slot-2-bg: hsl(174 55% 38%);
+  --c-mod-slot-2-fg: #ffffff;
+  --c-mod-slot-2-bd: hsl(174 55% 38%);
+  --c-mod-slot-3-bg: hsl(147 45% 87%);
+  --c-mod-slot-3-fg: hsl(147 45% 30%);
+  --c-mod-slot-3-bd: hsl(147 35% 70%);
+  --c-mod-slot-4-bg: hsl(195 45% 92%);
+  --c-mod-slot-4-fg: hsl(195 45% 32%);
+  --c-mod-slot-4-bd: hsl(195 35% 76%);
+  --c-mod-slot-5-bg: hsl(243 45% 87%);
+  --c-mod-slot-5-fg: hsl(243 45% 30%);
+  --c-mod-slot-5-bd: hsl(243 35% 70%);
+  --c-mod-slot-6-bg: hsl(222 55% 38%);
+  --c-mod-slot-6-fg: #ffffff;
+  --c-mod-slot-6-bd: hsl(222 55% 38%);
+  --c-mod-slot-7-bg: hsl(339 45% 87%);
+  --c-mod-slot-7-fg: hsl(339 45% 30%);
+  --c-mod-slot-7-bd: hsl(339 35% 70%);
+
+  /* 荣誉课程（覆盖色，冷色点缀） */
+  --c-honor-bg: hsl(200 45% 84%);
+  --c-honor-fg: hsl(200 50% 26%);
+
+  /* ===== 版面 ===== */
+  --c-panel: hsl(165 7% 94%);
+  --c-header: hsl(20 52% 28%);
+  --c-header-fg: #ffffff;
+  --c-arrow: hsl(345 45% 50%);
+  --c-title: hsl(20 50% 24%);
+  --c-page: hsl(165 10% 98%);
+  --c-legend-border: hsl(345 12% 88%);
+
+  --font-stack: 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei',
+    'Noto Sans CJK SC', 'Source Han Sans SC', sans-serif;
+  --font-title: var(--font-stack);
+
+  /* 结构差异变量 */
+  --card-radius: 8px;
+  --pill-radius: 8px;
+  --header-radius: 10px;
+  --header-accent: none;
+  --arrow-char: none;
+  --arrow-ls: -3px;
+
+  /* 左侧栏：白色描边盒 */
+  --side-radius: 12px;
+  --side-bg: #ffffff;
+  --side-public-line: 1.5px solid hsl(345 42% 46%);
+  --side-public-accent: none;
+  --side-public-fg: hsl(345 45% 30%);
+  --side-platform-line: 1.5px solid hsl(20 48% 46%);
+  --side-platform-accent: none;
+  --side-platform-fg: hsl(20 45% 34%);
+  --side-practice-line: 1.5px solid hsl(150 60% 30%);
+  --side-practice-accent: none;
+  --side-practice-fg: hsl(150 60% 30%);
+  --side-elective-line: 1.5px solid hsl(205 40% 50%);
+  --side-elective-accent: none;
+  --side-elective-fg: hsl(205 40% 38%);
+}
+
+/* ===================================================== */
+/* 模板1 = :root 默认；模板2 = 蓝金学院风结构（配色由 theme.js 随机生成覆盖） */
+/* ===================================================== */
+[data-theme='template2'] {
+  --c-common-elective-bg: #6b5fa8;
+  --c-common-elective-fg: #ffffff;
+  --c-common-required-bg: #eceaf6;
+  --c-common-required-fg: #4a3f8f;
+  --c-common-required-bd: #c5bfe3;
+  --c-platform-bg: #5b7db1;
+  --c-platform-fg: #ffffff;
+  --c-core-bg: #2d3a66;
+  --c-core-fg: #ffffff;
+  --c-practice-bg: #a9742f;
+  --c-practice-fg: #ffffff;
+
+  /* 色槽按数据首现顺序对应：0科学素质 1化学 2生命 3交叉 4计算机 5数学 6物理 */
+  --c-mod-slot-0-bg: #f2e8d5;
+  --c-mod-slot-0-fg: #8a6a2f;
+  --c-mod-slot-0-bd: #d9c49a;
+  --c-mod-slot-1-bg: #f9e4e8;
+  --c-mod-slot-1-fg: #a34053;
+  --c-mod-slot-1-bd: #e4b7c0;
+  --c-mod-slot-2-bg: #e3f0e0;
+  --c-mod-slot-2-fg: #3f7a44;
+  --c-mod-slot-2-bd: #b5d3b7;
+  --c-mod-slot-3-bg: #e0ecf7;
+  --c-mod-slot-3-fg: #3465a4;
+  --c-mod-slot-3-bd: #b3cce8;
+  --c-mod-slot-4-bg: #e8e4f4;
+  --c-mod-slot-4-fg: #5a4f9e;
+  --c-mod-slot-4-bd: #c3bbe3;
+  --c-mod-slot-5-bg: #fdebd3;
+  --c-mod-slot-5-fg: #b26a1b;
+  --c-mod-slot-5-bd: #ebcb98;
+  --c-mod-slot-6-bg: #e2e8f0;
+  --c-mod-slot-6-fg: #3d4e75;
+  --c-mod-slot-6-bd: #b9c4d8;
+  --c-mod-slot-7-bg: #f5e0ea;
+  --c-mod-slot-7-fg: #9c3d6e;
+  --c-mod-slot-7-bd: #e0b3ca;
+
+  --c-honor-bg: #efc868;
+  --c-honor-fg: #5c4200;
+
+  --c-panel: #f1f0f4;
+  --c-header: #ffffff;
+  --c-header-fg: #2d3a66;
+  --c-arrow: #c9a227;
+  --c-title: #2d3a66;
+  --c-page: #fbfaf7;
+  --c-legend-border: #dcd8e2;
+
+  --font-title: 'Noto Serif SC', 'Source Han Serif SC', 'STSong', 'SimSun', serif;
+
+  --card-radius: 3px;
+  --pill-radius: 3px;
+  --header-radius: 3px;
+  --header-accent: 3px solid #c9a227;
+  --arrow-char: '▸';
+  --arrow-ls: 2px;
+
+  --side-radius: 0px;
+  --side-bg: transparent;
+  --side-public-line: none;
+  --side-public-accent: 5px solid #6b5fa8;
+  --side-public-fg: #4a3f8f;
+  --side-platform-line: none;
+  --side-platform-accent: 5px solid #5b7db1;
+  --side-platform-fg: #33507e;
+  --side-practice-line: none;
+  --side-practice-accent: 5px solid #a9742f;
+  --side-practice-fg: #7a5322;
+  --side-elective-line: none;
+  --side-elective-accent: 5px solid #4e7a50;
+  --side-elective-fg: #35603a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background: var(--c-page);
+  font-family: var(--font-stack);
+  color: #333;
+}

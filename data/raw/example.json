@@ -1,0 +1,41 @@
+{
+  "code": 200,
+  "data": {
+    "total": 30,
+    "rows": [
+      { "courseId": "e101", "courseName": "体锻与健康教育", "courseNumber": "EX1000", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2026-1~2028-2" },
+      { "courseId": "e102", "courseName": "学术英语基础", "courseNumber": "EX1100", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2026-1~2027-2" },
+      { "courseId": "e103", "courseName": "通识写作工作坊", "courseNumber": "EX1101", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2026-1" },
+      { "courseId": "e104", "courseName": "批判性阅读", "courseNumber": "EX1103", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2026-1" },
+      { "courseId": "e105", "courseName": "逻辑与论证", "courseNumber": "EX1102", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2026-1" },
+      { "courseId": "e106", "courseName": "数字素养导论", "courseNumber": "EX1201", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2026-2" },
+      { "courseId": "e107", "courseName": "现代社会概论", "courseNumber": "EX1301", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2027-1" },
+      { "courseId": "e108", "courseName": "影像与城市记忆", "courseNumber": "EX1901", "courseCategoryName": "公选", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2027-1" },
+      { "courseId": "e109", "courseName": "声音景观入门", "courseNumber": "EX1902", "courseCategoryName": "公选", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2027-2" },
+      { "courseId": "e110", "courseName": "职业发展规划", "courseNumber": "EX1401", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2029-1" },
+      { "courseId": "e111", "courseName": "求职与面试工作坊", "courseNumber": "EX1402", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2028-2" },
+      { "courseId": "e112", "courseName": "国际视野讲座", "courseNumber": "EX1501", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2028-1" },
+      { "courseId": "e113", "courseName": "全球议题研讨", "courseNumber": "EX1502", "courseCategoryName": "公必", "courseSubClassModuleName": "公共课", "courseTypeName": "公共课", "initiationSemesterAnnotation": "2029-2" },
+
+      { "courseId": "s101", "courseName": "叙事设计导论", "courseNumber": "SM101", "courseCategoryName": "专必", "courseSubClassModuleName": "平台课模块", "courseTypeName": "平台课程", "initiationSemesterAnnotation": "2026-1" },
+      { "courseId": "s102", "courseName": "空间认知基础", "courseNumber": "SM102", "courseCategoryName": "专必", "courseSubClassModuleName": "平台课模块", "courseTypeName": "平台课程", "initiationSemesterAnnotation": "2026-2" },
+      { "courseId": "s103", "courseName": "材料与建造", "courseNumber": "SM103", "courseCategoryName": "专必", "courseSubClassModuleName": "平台课模块", "courseTypeName": "平台课程", "initiationSemesterAnnotation": "2027-1" },
+      { "courseId": "s201", "courseName": "叙事学原理", "courseNumber": "SM201", "courseCategoryName": "专必", "courseSubClassModuleName": "专必课", "courseTypeName": "专业课", "initiationSemesterAnnotation": "2026-2" },
+      { "courseId": "s202", "courseName": "空间叙事工作坊", "courseNumber": "SM202", "courseCategoryName": "专必", "courseSubClassModuleName": "专必课", "courseTypeName": "专业课", "initiationSemesterAnnotation": "2027-1" },
+      { "courseId": "s203", "courseName": "交互原型开发", "courseNumber": "SM203", "courseCategoryName": "专必", "courseSubClassModuleName": "专必课", "courseTypeName": "专业课", "initiationSemesterAnnotation": "2027-2" },
+      { "courseId": "s204", "courseName": "展陈技术基础", "courseNumber": "SM204", "courseCategoryName": "专必", "courseSubClassModuleName": "专必课", "courseTypeName": "专业课", "initiationSemesterAnnotation": "2028-1" },
+      { "courseId": "s205", "courseName": "毕业创作", "courseNumber": "SM205", "courseCategoryName": "专必", "courseSubClassModuleName": "专必课", "courseTypeName": "专业课", "initiationSemesterAnnotation": "2028-1~2028-2" },
+
+      { "courseId": "p101", "courseName": "田野调查实践", "courseNumber": "SM401", "courseCategoryName": "专必", "courseSubClassModuleName": "实习实践课", "courseTypeName": "实践课", "initiationSemesterAnnotation": "2027-1" },
+      { "courseId": "p102", "courseName": "社区共建实践", "courseNumber": "SM402", "courseCategoryName": "专必", "courseSubClassModuleName": "实习实践课", "courseTypeName": "实践课", "initiationSemesterAnnotation": "2028-1" },
+
+      { "courseId": "x101", "courseName": "图文叙事", "courseNumber": "EX201", "courseCategoryName": "专选", "courseSubClassModuleName": "叙事媒体模块", "courseTypeName": "专业选修课", "initiationSemesterAnnotation": "2026-1" },
+      { "courseId": "x102", "courseName": "纪录短片创作", "courseNumber": "EX202", "courseCategoryName": "专选", "courseSubClassModuleName": "叙事媒体模块", "courseTypeName": "专业选修课", "initiationSemesterAnnotation": "2027-1" },
+      { "courseId": "x103", "courseName": "播客节目制作", "courseNumber": "EX203", "courseCategoryName": "专选", "courseSubClassModuleName": "叙事媒体模块", "courseTypeName": "专业选修课", "initiationSemesterAnnotation": "2027-2" },
+      { "courseId": "x111", "courseName": "展陈空间策划", "courseNumber": "EX211", "courseCategoryName": "专选", "courseSubClassModuleName": "空间策略模块", "courseTypeName": "专业选修课", "initiationSemesterAnnotation": "2026-2" },
+      { "courseId": "x112", "courseName": "社区营造案例研究", "courseNumber": "EX212", "courseCategoryName": "专选", "courseSubClassModuleName": "空间策略模块", "courseTypeName": "专业选修课", "initiationSemesterAnnotation": "2027-1" },
+      { "courseId": "x121", "courseName": "生成式设计工具", "courseNumber": "EX221", "courseCategoryName": "专选", "courseSubClassModuleName": "前沿专题模块", "courseTypeName": "专业选修课", "initiationSemesterAnnotation": "2027-2" },
+      { "courseId": "x122", "courseName": "未来社区专题", "courseNumber": "EX222", "courseCategoryName": "专选", "courseSubClassModuleName": "前沿专题模块", "courseTypeName": "专业选修课", "initiationSemesterAnnotation": "2028-1" }
+    ]
+  }
+}

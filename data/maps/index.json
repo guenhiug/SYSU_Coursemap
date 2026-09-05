@@ -1,0 +1,8 @@
+[
+  {
+    "id": "example",
+    "title": "示例课程地图",
+    "data": "/raw/example.json",
+    "config": "/maps/example.config.json"
+  }
+]

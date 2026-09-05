@@ -1,0 +1,13 @@
+{
+  "title": "{year}级示例专业课程地图",
+  "theme": "template2",
+  "honor": ["EX203", "EX212"],
+  "moduleOrder": ["叙事媒体模块", "空间策略模块", "前沿专题模块"],
+  "relocate": [
+    { "code": "EX1102", "semesters": [2] },
+    { "code": "SM402", "band": 2 }
+  ],
+  "emptySlots": [{ "semester": 6, "band": 2 }],
+  "order": { "1-1": ["EX1103", "EX1101"] },
+  "paletteSeed": 7
+}
