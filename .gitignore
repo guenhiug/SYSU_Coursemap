@@ -9,3 +9,7 @@ data/maps/*
 AGENTS.md
 node_modules/
 dist/
+out/
+.venv/
+__pycache__/
+.pytest_cache/

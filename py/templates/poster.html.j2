@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{ title }}</title>
+    {# CSS 是原始样式文本，不能走 HTML 转义（实体在 <style> 里不会被解码） #}
+    <style>{{ css | safe }}</style>
+  </head>
+  <body>
+    <div class="app-root" data-theme="{{ theme }}" style="{{ style_vars | safe }}">
+      <main class="viewport">
+        <div class="sheet">
+          <div class="title-row">
+            <span class="deco deco-left" aria-hidden="true"><i></i><i></i><i></i></span>
+            <h1>{{ title }}</h1>
+            <span class="deco deco-right" aria-hidden="true"><i></i><i></i><i></i></span>
+          </div>
+
+          <div class="course-map {{ 'legend-bottom' if is_bottom_legend else 'legend-side' }}">
+            <div class="map-main" style="--cols: {{ cols }}; grid-template-columns: {{ cols }}; grid-template-rows: auto repeat(3, auto)">
+              {% for _ in range(sem_count) %}
+              <div class="panel-cell" style="grid-column: {{ loop.index + 1 }}; grid-row: 2 / 5"></div>
+              {% endfor %}
+
+              {% for s in semesters %}
+              <div class="sem-header{{ ' last' if loop.last }}" style="grid-column: {{ loop.index + 1 }}; grid-row: 1">{{ s.label }}</div>
+              {% endfor %}
+
+              {% for band in bands %}
+              {% set band_index = loop.index %}
+              {% set strip_rows = band.strips | length %}
+              <div class="band-area" style="grid-template-rows: repeat({{ strip_rows }}, auto) auto; grid-row: {{ band_index + 1 }}; grid-column: 1 / -1">
+                <div class="side-cell side-{{ side_cells[loop.index0].key }}" style="grid-column: 1; grid-row: 1 / {{ strip_rows + 2 }}">{{ side_cells[loop.index0].label }}</div>
+
+                {% for strip in band.strips %}
+                  {% for seg in strip.segments %}
+                <div class="course-card {{ seg.item.styleKey }} {{ seg.item.kind }} strip" style="grid-column: {{ seg.start + 1 }} / {{ seg.end + 2 }}; grid-row: {{ strip.row + 1 }}">
+                  {% if seg.item.kind != 'empty' %}<span>{{ card_text(seg.item) }}</span>{% endif %}
+                </div>
+                  {% endfor %}
+                {% endfor %}
+
+                {% for lift in band.lifts %}
+                <div class="course-card {{ lift.item.styleKey }} {{ lift.item.kind }} strip" style="grid-column: {{ lift.col + 2 }}; grid-row: {{ lift.row + 1 }}">
+                  {% if lift.item.kind != 'empty' %}<span>{{ card_text(lift.item) }}</span>{% endif %}
+                </div>
+                {% endfor %}
+
+                {% for blank in band.blanks %}
+                <div class="strip blank" style="grid-column: {{ blank.col + 2 }}; grid-row: {{ blank.row + 1 }}"></div>
+                {% endfor %}
+
+                {% for stack in band.stacks %}
+                <div class="stack-cell band-{{ band_index }}{{ ' last' if loop.last }}" style="grid-column: {{ loop.index + 1 }}; grid-row: {{ strip_rows + 1 }}">
+                  {% for item in stack %}
+                  <div class="course-card {{ item.styleKey }} {{ item.kind }}">
+                    {% if item.kind != 'empty' %}<span>{{ card_text(item) }}</span>{% endif %}
+                  </div>
+                  {% endfor %}
+                </div>
+                {% endfor %}
+              </div>
+              {% endfor %}
+            </div>
+
+            <aside class="legend legend--{{ legend_variant }}">
+              <h2>图例与课程类别</h2>
+              {% for b in legend.basics %}
+              <div class="pill {{ b.key }}">{{ b.label }}</div>
+              {% endfor %}
+
+              {% if legend.modules %}
+              <div class="elective-group">
+                <div class="group-title">{{ elective_label }}</div>
+                {% for m in legend.modules %}
+                <div class="pill {{ m.styleKey }}">{{ m.name }}</div>
+                {% endfor %}
+              </div>
+              {% endif %}
+
+              {% if legend.hasHonor %}
+              <div class="pill honor">{{ honor_label }}</div>
+              {% endif %}
+            </aside>
+          </div>
+        </div>
+      </main>
+    </div>
+  </body>
+</html>
