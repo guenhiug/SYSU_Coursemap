@@ -163,10 +163,20 @@
   padding: 0;
   box-sizing: border-box;
 }
-
 html,
 body {
   background: var(--c-page);
   font-family: var(--font-stack);
   color: #333;
+}
+
+/* ===================================================== */
+/* 课程路线图：只新增路线图专用变量，不改既有 --c-* / --side-* 语义 */
+/* ===================================================== */
+:root {
+  --route-edge-agent: color-mix(in srgb, var(--c-title) 45%, #fff);
+  --route-focus-ring: var(--c-arrow);
+  --route-prev-ring: hsl(212 62% 46%);
+  --route-next-ring: hsl(150 55% 36%);
+  --route-dim: 0.18;
 }

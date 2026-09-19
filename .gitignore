@@ -5,6 +5,8 @@ data/raw/*
 data/maps/*
 !data/maps/index.json
 !data/maps/example.config.json
+!data/maps/example.graph.json
+data/maps/index.local.json
 .q*/
 AGENTS.md
 node_modules/

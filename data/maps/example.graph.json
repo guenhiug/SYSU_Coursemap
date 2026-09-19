@@ -1,0 +1,476 @@
+{
+  "version": 3,
+  "id": "example",
+  "meta": {
+    "status": "built",
+    "sourceRaw": "/raw/example.json",
+    "builtAt": "2026-09-12T08:48:10.829Z",
+    "passes": [
+      {
+        "stage": "A",
+        "shard": "平台课模块",
+        "model": null,
+        "at": "2026-09-12T08:13:09.036Z"
+      },
+      {
+        "stage": "A",
+        "shard": "专必课",
+        "model": null,
+        "at": "2026-09-12T08:13:09.036Z"
+      },
+      {
+        "stage": "A",
+        "shard": "实习实践课",
+        "model": null,
+        "at": "2026-09-12T08:13:09.036Z"
+      },
+      {
+        "stage": "A",
+        "shard": "叙事媒体模块",
+        "model": null,
+        "at": "2026-09-12T08:13:09.036Z"
+      },
+      {
+        "stage": "A",
+        "shard": "空间策略模块",
+        "model": null,
+        "at": "2026-09-12T08:13:09.036Z"
+      },
+      {
+        "stage": "A",
+        "shard": "前沿专题模块",
+        "model": null,
+        "at": "2026-09-12T08:13:09.036Z"
+      },
+      {
+        "stage": "B",
+        "shard": "__all__",
+        "model": null,
+        "at": "2026-09-12T08:48:10.829Z"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "id": "SM101",
+      "name": "叙事设计导论",
+      "code": "SM101",
+      "module": "平台课模块",
+      "typeName": "平台课程",
+      "category": "专必",
+      "credits": null,
+      "semesters": [
+        "2026-1"
+      ],
+      "grade": 1,
+      "spanning": false,
+      "styleKey": "platform",
+      "sourceHash": "4451ab0d"
+    },
+    {
+      "id": "SM102",
+      "name": "空间认知基础",
+      "code": "SM102",
+      "module": "平台课模块",
+      "typeName": "平台课程",
+      "category": "专必",
+      "credits": null,
+      "semesters": [
+        "2026-2"
+      ],
+      "grade": 1,
+      "spanning": false,
+      "styleKey": "platform",
+      "sourceHash": "d6a9185d"
+    },
+    {
+      "id": "SM103",
+      "name": "材料与建造",
+      "code": "SM103",
+      "module": "平台课模块",
+      "typeName": "平台课程",
+      "category": "专必",
+      "credits": null,
+      "semesters": [
+        "2027-1"
+      ],
+      "grade": 2,
+      "spanning": false,
+      "styleKey": "platform",
+      "sourceHash": "8cf5fc00"
+    },
+    {
+      "id": "SM201",
+      "name": "叙事学原理",
+      "code": "SM201",
+      "module": "专必课",
+      "typeName": "专业课",
+      "category": "专必",
+      "credits": null,
+      "semesters": [
+        "2026-2"
+      ],
+      "grade": 1,
+      "spanning": false,
+      "styleKey": "core",
+      "sourceHash": "9b94dee1"
+    },
+    {
+      "id": "SM202",
+      "name": "空间叙事工作坊",
+      "code": "SM202",
+      "module": "专必课",
+      "typeName": "专业课",
+      "category": "专必",
+      "credits": null,
+      "semesters": [
+        "2027-1"
+      ],
+      "grade": 2,
+      "spanning": false,
+      "styleKey": "core",
+      "sourceHash": "400b9c9c"
+    },
+    {
+      "id": "SM203",
+      "name": "交互原型开发",
+      "code": "SM203",
+      "module": "专必课",
+      "typeName": "专业课",
+      "category": "专必",
+      "credits": null,
+      "semesters": [
+        "2027-2"
+      ],
+      "grade": 2,
+      "spanning": false,
+      "styleKey": "core",
+      "sourceHash": "5ef2c8a2"
+    },
+    {
+      "id": "SM204",
+      "name": "展陈技术基础",
+      "code": "SM204",
+      "module": "专必课",
+      "typeName": "专业课",
+      "category": "专必",
+      "credits": null,
+      "semesters": [
+        "2028-1"
+      ],
+      "grade": 3,
+      "spanning": false,
+      "styleKey": "core",
+      "sourceHash": "f2861cba"
+    },
+    {
+      "id": "SM205",
+      "name": "毕业创作",
+      "code": "SM205",
+      "module": "专必课",
+      "typeName": "专业课",
+      "category": "专必",
+      "credits": null,
+      "semesters": [
+        "2028-1",
+        "2028-2"
+      ],
+      "grade": 3,
+      "spanning": true,
+      "styleKey": "core",
+      "sourceHash": "c2df0f36"
+    },
+    {
+      "id": "SM401",
+      "name": "田野调查实践",
+      "code": "SM401",
+      "module": "实习实践课",
+      "typeName": "实践课",
+      "category": "专必",
+      "credits": null,
+      "semesters": [
+        "2027-1"
+      ],
+      "grade": 2,
+      "spanning": false,
+      "styleKey": "practice",
+      "sourceHash": "a7100aec"
+    },
+    {
+      "id": "SM402",
+      "name": "社区共建实践",
+      "code": "SM402",
+      "module": "实习实践课",
+      "typeName": "实践课",
+      "category": "专必",
+      "credits": null,
+      "semesters": [
+        "2028-1"
+      ],
+      "grade": 3,
+      "spanning": false,
+      "styleKey": "practice",
+      "sourceHash": "dae6ba01"
+    },
+    {
+      "id": "EX201",
+      "name": "图文叙事",
+      "code": "EX201",
+      "module": "叙事媒体模块",
+      "typeName": "专业选修课",
+      "category": "专选",
+      "credits": null,
+      "semesters": [
+        "2026-1"
+      ],
+      "grade": 1,
+      "spanning": false,
+      "styleKey": "mod-slot-0",
+      "sourceHash": "2bad18a7"
+    },
+    {
+      "id": "EX202",
+      "name": "纪录短片创作",
+      "code": "EX202",
+      "module": "叙事媒体模块",
+      "typeName": "专业选修课",
+      "category": "专选",
+      "credits": null,
+      "semesters": [
+        "2027-1"
+      ],
+      "grade": 2,
+      "spanning": false,
+      "styleKey": "mod-slot-0",
+      "sourceHash": "d08b8fa4"
+    },
+    {
+      "id": "EX203",
+      "name": "播客节目制作",
+      "code": "EX203",
+      "module": "叙事媒体模块",
+      "typeName": "专业选修课",
+      "category": "专选",
+      "credits": null,
+      "semesters": [
+        "2027-2"
+      ],
+      "grade": 2,
+      "spanning": false,
+      "styleKey": "mod-slot-0",
+      "sourceHash": "3d4af141"
+    },
+    {
+      "id": "EX211",
+      "name": "展陈空间策划",
+      "code": "EX211",
+      "module": "空间策略模块",
+      "typeName": "专业选修课",
+      "category": "专选",
+      "credits": null,
+      "semesters": [
+        "2026-2"
+      ],
+      "grade": 1,
+      "spanning": false,
+      "styleKey": "mod-slot-1",
+      "sourceHash": "14b699bb"
+    },
+    {
+      "id": "EX212",
+      "name": "社区营造案例研究",
+      "code": "EX212",
+      "module": "空间策略模块",
+      "typeName": "专业选修课",
+      "category": "专选",
+      "credits": null,
+      "semesters": [
+        "2027-1"
+      ],
+      "grade": 2,
+      "spanning": false,
+      "styleKey": "mod-slot-1",
+      "sourceHash": "7a50f351"
+    },
+    {
+      "id": "EX221",
+      "name": "生成式设计工具",
+      "code": "EX221",
+      "module": "前沿专题模块",
+      "typeName": "专业选修课",
+      "category": "专选",
+      "credits": null,
+      "semesters": [
+        "2027-2"
+      ],
+      "grade": 2,
+      "spanning": false,
+      "styleKey": "mod-slot-2",
+      "sourceHash": "9667b3b7"
+    },
+    {
+      "id": "EX222",
+      "name": "未来社区专题",
+      "code": "EX222",
+      "module": "前沿专题模块",
+      "typeName": "专业选修课",
+      "category": "专选",
+      "credits": null,
+      "semesters": [
+        "2028-1"
+      ],
+      "grade": 3,
+      "spanning": false,
+      "styleKey": "mod-slot-2",
+      "sourceHash": "192746cb"
+    }
+  ],
+  "edges": [
+    {
+      "from": "EX201",
+      "to": "EX202",
+      "kind": "prereq",
+      "confidence": 0.9,
+      "evidence": "图文叙事是纪录短片创作的叙事基本功",
+      "source": "agent",
+      "pass": "A",
+      "shard": "叙事媒体模块",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.036Z"
+    },
+    {
+      "from": "EX201",
+      "to": "SM202",
+      "kind": "coreq",
+      "confidence": 0.7,
+      "evidence": "图文叙事与空间叙事工作坊在同一阶段互为例证",
+      "source": "agent",
+      "pass": "B",
+      "shard": "__all__",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.191Z"
+    },
+    {
+      "from": "EX211",
+      "to": "EX212",
+      "kind": "prereq",
+      "confidence": 0.8,
+      "evidence": "展陈空间策划是社区营造案例研究的空间分析基础",
+      "source": "agent",
+      "pass": "A",
+      "shard": "空间策略模块",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.036Z"
+    },
+    {
+      "from": "EX221",
+      "to": "EX222",
+      "kind": "prereq",
+      "confidence": 0.8,
+      "evidence": "生成式设计工具是未来社区专题的技术前提",
+      "source": "agent",
+      "pass": "A",
+      "shard": "前沿专题模块",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.036Z"
+    },
+    {
+      "from": "SM101",
+      "to": "SM201",
+      "kind": "prereq",
+      "confidence": 0.7,
+      "evidence": "叙事设计导论是叙事学原理在平台课方向的入门铺垫",
+      "source": "agent",
+      "pass": "B",
+      "shard": "__all__",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.191Z"
+    },
+    {
+      "from": "SM102",
+      "to": "SM103",
+      "kind": "prereq",
+      "confidence": 0.8,
+      "evidence": "空间认知基础是材料与建造的空间设计前置知识",
+      "source": "agent",
+      "pass": "A",
+      "shard": "平台课模块",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.036Z"
+    },
+    {
+      "from": "SM102",
+      "to": "SM401",
+      "kind": "prereq",
+      "confidence": 0.6,
+      "evidence": "空间认知基础为田野调查实践提供空间观察视角",
+      "source": "agent",
+      "pass": "B",
+      "shard": "__all__",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.191Z"
+    },
+    {
+      "from": "SM201",
+      "to": "SM202",
+      "kind": "prereq",
+      "confidence": 0.9,
+      "evidence": "叙事学原理为空间叙事工作坊提供理论框架",
+      "source": "agent",
+      "pass": "A",
+      "shard": "专必课",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.036Z"
+    },
+    {
+      "from": "SM202",
+      "to": "SM203",
+      "kind": "prereq",
+      "confidence": 0.8,
+      "evidence": "空间叙事工作坊的成果需要交互原型开发承接实现",
+      "source": "agent",
+      "pass": "A",
+      "shard": "专必课",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.036Z"
+    },
+    {
+      "from": "SM203",
+      "to": "EX221",
+      "kind": "prereq",
+      "confidence": 0.75,
+      "evidence": "交互原型开发是生成式设计工具的实现基础",
+      "source": "agent",
+      "pass": "B",
+      "shard": "__all__",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.191Z"
+    },
+    {
+      "from": "SM204",
+      "to": "SM205",
+      "kind": "prereq",
+      "confidence": 0.9,
+      "evidence": "毕业创作需以展陈技术基础的专业能力为前提",
+      "source": "agent",
+      "pass": "A",
+      "shard": "专必课",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.036Z"
+    },
+    {
+      "from": "SM401",
+      "to": "SM402",
+      "kind": "prereq",
+      "confidence": 0.85,
+      "evidence": "田野调查实践为社区共建实践提供调研方法与经验",
+      "source": "agent",
+      "pass": "A",
+      "shard": "实习实践课",
+      "model": null,
+      "createdAt": "2026-09-12T08:13:09.036Z"
+    }
+  ],
+  "suppressed": [],
+  "issues": []
+}

@@ -37,21 +37,21 @@ const ART_KEY = '__ART_AESTHETIC__'
 
 const THEME_ALIAS = { default: 'template1', integrated: 'template2' }
 
-function extractRows(raw) {
+export function extractRows(raw) {
   if (Array.isArray(raw)) return raw
   if (Array.isArray(raw?.rows)) return raw.rows
   if (Array.isArray(raw?.data?.rows)) return raw.data.rows
   throw new Error('无法识别的数据格式：期望 data.rows / rows / 数组')
 }
 
-function parseSemesterKey(key) {
+export function parseSemesterKey(key) {
   const m = /^(\d{4})-(\d+)$/.exec(String(key).trim())
   if (!m) return null
   return { year: Number(m[1]), num: Number(m[2]) }
 }
 
 // '2026-1~2029-2' → 区间内所有学期 key（含端点）；单值 → [自身]
-function expandAnnotation(annotation) {
+export function expandAnnotation(annotation) {
   const parts = String(annotation ?? '').split('~').map((s) => s.trim())
   const start = parseSemesterKey(parts[0])
   if (!start) return []

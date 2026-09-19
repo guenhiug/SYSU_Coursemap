@@ -1,12 +1,18 @@
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, computed, onMounted, watch } from 'vue'
 import CourseMap from './components/CourseMap.vue'
+import RouteMap from './components/RouteMap.vue'
 import { normalizeMap } from './lib/normalize.js'
+import { buildRouteView, graphPathOf, mergeMapIndex } from './lib/course-graph.js'
 import { toPng } from 'html-to-image'
 
 const entries = ref([])
 const selectedId = ref('')
 const mapData = ref(null)
+const rawData = ref(null)
+const currentConfig = ref({})
+const graph = ref(null)
+const view = ref('map')
 const error = ref('')
 const exporting = ref(false)
 const fileInput = ref(null)
@@ -50,6 +56,25 @@ function applyOverride(id, config) {
   }
 }
 
+function applyViewOverride(id) {
+  const ov = readOverrides()[id] ?? {}
+  const fromUrl = new URLSearchParams(location.search).get('view')
+  if (fromUrl === 'route' || fromUrl === 'map') return fromUrl
+  return ov.view === 'route' ? 'route' : 'map'
+}
+
+async function loadGraph(entry) {
+  const url = graphPathOf(entry)
+  if (!url) return null
+  try {
+    const r = await fetch(url)
+    if (!r.ok) return null
+    return await r.json()
+  } catch {
+    return null
+  }
+}
+
 async function renderEntry(entry) {
   error.value = ''
   try {
@@ -59,10 +84,23 @@ async function renderEntry(entry) {
       : entry.config
         ? await fetchJson(entry.config).catch(() => ({}))
         : {}
-    mapData.value = normalizeMap(raw, applyOverride(entry.id, { title: entry.title, ...fileConfig }))
+    const config = applyOverride(entry.id, { title: entry.title, ...fileConfig })
+    // ?rank=semester 临时切换列模式；config.route.rankMode 优先（URL 仅作缺省补充）。
+    const rankParam = new URLSearchParams(location.search).get('rank')
+    if (rankParam && !config.route?.rankMode) {
+      config.route = { ...(config.route ?? {}), rankMode: rankParam }
+    }
+    rawData.value = raw
+    currentConfig.value = config
+    mapData.value = normalizeMap(raw, config)
+    graph.value = entry.raw ? null : await loadGraph(entry)
+    view.value = applyViewOverride(entry.id)
   } catch (e) {
     error.value = friendlyError(e)
     mapData.value = null
+    rawData.value = null
+    currentConfig.value = {}
+    graph.value = null
   }
 }
 
@@ -80,9 +118,40 @@ async function setTheme(theme) {
   await renderEntry(entry)
 }
 
+function setView(next) {
+  view.value = next
+  const entry = entries.value.find((e) => e.id === selectedId.value)
+  if (!entry) return
+  const store = readOverrides()
+  store[entry.id] = { ...(store[entry.id] ?? {}), view: next === 'route' ? 'route' : 'map' }
+  try {
+    localStorage.setItem(OVERRIDE_KEY, JSON.stringify(store))
+  } catch {
+    /* 仅本次会话生效 */
+  }
+}
+
+const routeView = computed(() => {
+  if (view.value !== 'route' || !mapData.value) return null
+  return buildRouteView({ raw: rawData.value, graph: graph.value, config: currentConfig.value })
+})
+
+const sheetTitle = computed(() =>
+  view.value === 'route' && mapData.value ? `${mapData.value.title} · 课程路线图` : mapData.value?.title ?? '',
+)
+
+// 地图清单 = 入库的 index.json + 本地 index.local.json（后者 gitignore，local 覆盖同名 id）。
+async function loadEntries() {
+  const [committed, local] = await Promise.all([
+    fetchJson('/maps/index.json'),
+    fetchJson('/maps/index.local.json').catch(() => []),
+  ])
+  return mergeMapIndex(committed, local)
+}
+
 onMounted(async () => {
   try {
-    entries.value = await fetchJson('/maps/index.json')
+    entries.value = await loadEntries()
   } catch (e) {
     error.value = /Failed to fetch/i.test(String(e))
       ? '地图清单加载失败：无法连接服务器。请确认 npm run dev 正在运行，并通过 http://localhost:5173 访问（不要用 file:// 直接打开页面）'
@@ -134,7 +203,7 @@ function onFileChange(e) {
     }
     try {
       const saved = await saveImportedMap(file, String(reader.result))
-      entries.value = await fetchJson('/maps/index.json')
+      entries.value = await loadEntries()
       if (selectedId.value === saved.id) {
         const entry = entries.value.find((en) => en.id === saved.id)
         if (entry) await renderEntry(entry)
@@ -168,11 +237,13 @@ async function exportPng() {
     const bg = getComputedStyle(root).backgroundColor
     const dataUrl = await toPng(el, { pixelRatio: 2, backgroundColor: bg })
     const a = document.createElement('a')
-    a.download = `${mapData.value.title}.png`
+    a.download = view.value === 'route' ? `${mapData.value.title}-路线图.png` : `${mapData.value.title}.png`
     a.href = dataUrl
     a.click()
   } catch (e) {
-    error.value = `导出失败: ${e.message}`
+    const detail = e?.message ?? e?.name ?? String(e) ?? '未知错误'
+    error.value = `导出失败: ${detail}`
+    console.error('[exportPng]', e)
   } finally {
     exporting.value = false
   }
@@ -190,6 +261,26 @@ async function exportPng() {
         <select v-model="selectedId" class="map-picker" aria-label="选择课程地图">
           <option v-for="e in entries" :key="e.id" :value="e.id">{{ e.title }}</option>
         </select>
+        <div class="theme-switch" role="group" aria-label="切换视图">
+          <button
+            class="btn theme-btn"
+            :class="{ active: view === 'map' }"
+            type="button"
+            :disabled="!mapData"
+            @click="setView('map')"
+          >
+            课程地图
+          </button>
+          <button
+            class="btn theme-btn"
+            :class="{ active: view === 'route' }"
+            type="button"
+            :disabled="!mapData"
+            @click="setView('route')"
+          >
+            课程路线图
+          </button>
+        </div>
         <div class="theme-switch" role="group" aria-label="切换模板">
           <button
             class="btn theme-btn"
@@ -229,10 +320,14 @@ async function exportPng() {
       <div v-else-if="mapData" class="sheet">
         <div class="title-row">
           <span class="deco deco-left" aria-hidden="true"><i /><i /><i /></span>
-          <h1>{{ mapData.title }}</h1>
+          <h1>{{ sheetTitle }}</h1>
           <span class="deco deco-right" aria-hidden="true"><i /><i /><i /></span>
         </div>
-        <CourseMap :map="mapData" />
+        <RouteMap
+          v-if="view === 'route' && routeView"
+          :route="routeView"
+        />
+        <CourseMap v-else :map="mapData" />
       </div>
     </main>
   </div>
@@ -247,7 +342,8 @@ async function exportPng() {
   display: flex;
   align-items: center;
   justify-content: flex-end;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 10px 20px;
   padding: 26px 32px 10px;
 }
 .sheet {
